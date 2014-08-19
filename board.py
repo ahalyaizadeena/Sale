@@ -210,6 +210,25 @@ class board_create(osv.osv_memory):
         'name': fields.char('Board Name', required=True),
         'menu_parent_id': fields.many2one('ir.ui.menu', 'Parent Menu', required=True),
     }
+    
+    
+    
+   def _default_menu_parent_id(self, cr, uid, context=None):
+        _, menu_id = self.pool.get('ir.model.data').get_object_reference(cr, uid, 'base', 'menu_reporting_dashboard')
+        return menu_id
+
+    _name = "board.create"
+    _description = "Board Creation"
+
+    _columns = {
+        'name': fields.char('Board Name', required=True),
+        'menu_parent_id': fields.many2one('ir.ui.menu', 'Parent Menu', required=True),
+    } 
+    
+    
+    
+    
+    
 
     _defaults = {
         'menu_parent_id': _default_menu_parent_id,
