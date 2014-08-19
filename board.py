@@ -132,6 +132,35 @@ class board_create(osv.osv_memory):
             'arch': view_arch,
         }, context=context)
 
+      
+      
+      action_id = self.pool.get('ir.actions.act_window').create(cr, uid, {
+            'name': this.name,
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'board.board',
+            'usage': 'menu',
+            'view_id': view_id,
+            'help': dedent('''<div class="oe_empty_custom_dashboard">
+              <p>
+                <b>This dashboard is empty.</b>
+              </p><p>
+                To add the first report into this dashboard, go to any
+                menu, switch to list or graph view, and click <i>'Add to
+                Dashboard'</i> in the extended search options.
+              </p><p>
+                You can filter and group data before inserting into the
+                dashboard using the search options.
+              </p>
+          </div>
+            ''')
+      
+      
+      
+      
+      
+      
+      
         action_id = self.pool.get('ir.actions.act_window').create(cr, uid, {
             'name': this.name,
             'view_type': 'form',
