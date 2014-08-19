@@ -53,6 +53,16 @@ class board_board(osv.osv):
         menu_names = Menus.name_get(cr, uid, menu_ids, context=context)
         return [dict(id=m[0], name=m[1]) for m in menu_names]
 
+
+
+  def _clear_list_cache(self):
+        self.list.clear_cache(self)
+
+    def create(self, cr, user, vals, context=None):
+        return 0
+
+
+
     def _clear_list_cache(self):
         self.list.clear_cache(self)
 
